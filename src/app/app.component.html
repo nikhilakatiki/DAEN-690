@@ -1,0 +1,18 @@
+<div class="main" fxLayout="column">
+  <mat-toolbar class="color" fxFlex="5vh">
+    <mat-toolbar-row fxLayout="row" fxLayoutAlign="end center">
+      <img height=30 src="../assets/download.jpg"> 
+      <button mat-button routerLink="">COVID-19 USA</button>
+      <button mat-button routerLink="/covidworld">COVID-19 WORLD</button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <div class="width" fxFlex="95vh">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+
+
+
+      <!-- <button mat-button routerLink="/comparision">COMPARISIONS</button>  
+      <button mat-button routerLink="/tweets">TWEET ANALYSIS</button> -->
+          <!-- <button mat-button routerLink="/about">ABOUT</button> -->

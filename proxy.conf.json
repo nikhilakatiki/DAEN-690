@@ -1,0 +1,7 @@
+{
+    "/data": {
+        "target": "https://covidtracking.com/api/v1/states/current.json",
+        "secure": true,
+        "changeOrigin": true
+    }
+}

@@ -1,0 +1,47 @@
+<div class="parent" fxLayout="row">
+    <div fxFlex="50" fxLayout="column">
+        <div fxFlex="10">
+            <mat-form-field>
+                <mat-label>Select a Country</mat-label>
+                <mat-select [formControl]="countrySelect">
+                    <mat-option *ngFor="let country of countries" [value]="country">{{country}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div fxFlex="90" *ngIf="graph">
+            <div fxLayout="row" fxFlex="50" fxLayoutAlign="space-between center">
+                <div fxLayout="column" fxFlex="50" fxLayoutAlign="space-around ">
+                    <div>
+                        <div>Number of Deaths for {{countrySelect.value}}</div>
+                        <div>
+                            <plotly-plot [data]="graph.result1" [layout]="graph.layout"></plotly-plot>
+                        </div>
+                    </div>
+                    <div>
+                        <div>Number of Recovered for {{countrySelect.value}}</div>
+                        <plotly-plot [data]="graph.result2" [layout]="graph.layout"></plotly-plot>
+                    </div>
+                </div>
+            </div>
+            <div fxLayout="row" fxFlex="50" fxLayoutAlign="space-between center">
+                <div fxLayout="column" fxFlex="50" fxLayoutAlign="space-around">
+                    <div>
+                        <div>Number of Confirmed for {{countrySelect.value}}</div>
+                        <plotly-plot [data]="graph.result3" [layout]="graph.layout"></plotly-plot>
+                    </div>
+
+                    <div>
+                        <div>Number of Confirmed for {{countrySelect.value}}</div>
+                        <plotly-plot [data]="graph.result3" [layout]="graph.layout"></plotly-plot>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div *ngIf="worldMap">
+        <plotly-plot [data]="worldMap.data" [layout]="worldMap.layout"></plotly-plot>
+    </div>
+</div>

@@ -1,0 +1,48 @@
+<div class="parent margin-layout" fxLayout="column" fxLayoutAlign="space-around stretch"> 
+    <div fxFlex="100" fxLayout="row" fxLayoutAlign="space-around center">
+        <div class="parent mat-elevation-z8" fxFlex="15">
+            <table mat-table [dataSource]="states" matSort class="mat-elevation-z8">
+                <ng-container matColumnDef="state">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>State Code</th>
+                    <td mat-cell *matCellDef="let USstate">{{USstate.state}}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="positive">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Positive cases</th>
+                    <td mat-cell *matCellDef="let USstate">{{USstate.positive}}</td>
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;sticky:true"></tr>
+            </table>
+        </div>
+
+        <div class="mat-elevation-z8" fxFlex="50">
+            <plotly-plot [data]="chloropethMap.data" [layout]="chloropethMap.layout" [config]="chloropethMap.config"
+                [style]="{position: 'relative', width: '100%', height: '100%'}"></plotly-plot>
+        </div>
+
+        <div class="mat-elevation-z8 parent" fxFlex="25" fxLayout="column" fxLayoutAlign="space-between stretch">
+            <div fxFlex="45">
+                <plotly-plot [data]="recovered.data" [layout]="recovered.layout" [config]="recovered.config"
+                    [style]="{position: 'relative', width: '100%', height: '100%'}"></plotly-plot>
+            </div>
+            <div fxFlex="45">
+
+                <plotly-plot [data]="deaths.data" [layout]="deaths.layout" [config]="deaths.config"
+                    [style]="{position: 'relative', width: '100%', height: '100%'}"></plotly-plot>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+ <!-- <div fxFlex="5">
+        <mat-form-field>
+            <mat-label>Name of the State</mat-label>
+            <input matInput type="text" [(ngModel)]="value">
+            <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+                <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+    </div> -->
